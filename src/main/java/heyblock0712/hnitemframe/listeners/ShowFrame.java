@@ -24,13 +24,16 @@ public class ShowFrame implements Listener {
 
         // 檢查 蹲下 + 實體:物品展示框
         if ((entity.getType() != EntityType.ITEM_FRAME) || !(player.isSneaking())) return;
+        ItemFrame itemFrame = (ItemFrame) entity;
+
+        // 檢查 展示框:現形
+        if (itemFrame.isVisible()) return;
 
         // 檢查玩家手中 物品:水桶
         ItemStack item = player.getInventory().getItemInMainHand();
         if (item.getType() != Material.WATER_BUCKET) return;
 
         // 設置 顯示展示框
-        ItemFrame itemFrame = (ItemFrame) entity;
         itemFrame.setVisible(true);
 
         // 設置手上 物品:空桶

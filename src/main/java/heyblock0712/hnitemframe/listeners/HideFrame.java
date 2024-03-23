@@ -26,6 +26,10 @@ public class HideFrame implements Listener {
 
         // 檢查 蹲下 + 實體:物品展示框
         if((entity.getType() != EntityType.ITEM_FRAME) || !(player.isSneaking())) return;
+        ItemFrame itemFrame = (ItemFrame) entity;
+
+        // 檢查 展示框:隱形
+        if (!(itemFrame.isVisible())) return;
 
         // 檢查玩家手中 物品:藥水
         ItemStack item = player.getInventory().getItemInMainHand();
@@ -37,7 +41,6 @@ public class HideFrame implements Listener {
 
 
         // 設置 隱形展示框
-        ItemFrame itemFrame = (ItemFrame) entity;
         itemFrame.setVisible(false);
 
         // 移除 手上物品
