@@ -1,0 +1,4 @@
+name: HNItemFrame
+version: '${version}'
+main: heyblock0712.hnitemframe.HNItemFrame
+api-version: '1.20'
